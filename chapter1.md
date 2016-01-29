@@ -21,6 +21,9 @@ from sklearn import linear_model
 
 ## Load iris dataset
 iris = datasets.load_iris()
-
+X = iris.data
+Y = iris.target
+model = linear_model.LinearRegression()
+modelfit = model.fit(X,Y)
 
 ```
