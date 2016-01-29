@@ -13,19 +13,26 @@ $$
 
 Here, $$\mu$$ is the mean effect and $$\beta$$ is the effect of the explanatory variable X on the response variable Y.
 
-Let's see how this works 
+Let's see how this works
+
+
+#### Python
 
 ```python
 from sklearn import datasets
 from sklearn import linear_model
 import numpy as np
+import matplotlib.pyplot as plt
 
 ## Load iris dataset
 iris = datasets.load_iris()
 X = iris.data
 X = np.insert(X,0,1,axis=1) # constant for mean effect
 Y = iris.target
-model = linear_model.LinearRegression()
+model = linear_model.LinearRegression(normalize=True)
 modelfit = model.fit(X,Y)
-
+beta = modelfit.coef_
 ```
+Here the length of $$\beta$$ is equal to # explanatory variables (columns in  $$X$$) +1 (for the mean term, $$\mu$$)
+
+#### R
