@@ -13,7 +13,14 @@ $$
 
 Here, $$\mu$$ is the mean effect and $$\beta$$ is the effect of the explanatory variable X on the response variable Y.
 
+Let's see how this works 
+
 ```python
-## Read data
+from sklearn import datasets
+from sklearn import linear_model
+
+## Load iris dataset
+iris = datasets.load_iris()
+
 
 ```
