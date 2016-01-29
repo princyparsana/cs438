@@ -18,10 +18,12 @@ Let's see how this works
 ```python
 from sklearn import datasets
 from sklearn import linear_model
+import numpy as np
 
 ## Load iris dataset
 iris = datasets.load_iris()
 X = iris.data
+X = np.insert(X,0,1,axis=1) # constant for mean effect
 Y = iris.target
 model = linear_model.LinearRegression()
 modelfit = model.fit(X,Y)
