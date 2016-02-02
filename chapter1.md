@@ -47,6 +47,15 @@ beta = model$coefficients
 ```
 
 #### MATLAB
-```MATLAB
-
+```matlab
+load fisheriris % this loads two variables, species corresponding to the target and meas corresponding to predictor variable
+Y = zeros(length(species),1); 
+Y(find(strcmp(species,'virginica')))=2;
+Y(find(strcmp(species,'versicolor')))=1;
+X = meas;
+modelfit = fitlm(X,t); % automatically 
+beta = modelfit.Coefficients;
 ```
+As we see above, the scripts above do the same thing. It learns the effect of each feature in X on the response variable Y.
+
+## Principal Component Analysis
