@@ -1,3 +1,7 @@
 {
-    "plugins": ["myPlugin@1.2.3"]
+    "plugins": [
+        "myPlugin@1.2.3",
+        "chart"
+    ],
+    "pluginsConfig": {}
 }
