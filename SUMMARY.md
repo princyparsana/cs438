@@ -1,5 +1,5 @@
 # Summary
 
-* [Introduction](readme.md)
+* [Introduction](README.md)
 * [Basic ML with Python, R and MATLAB](chapter1.md)
 
