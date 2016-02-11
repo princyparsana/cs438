@@ -24,11 +24,11 @@ from sklearn import linear_model
 import numpy as np
 import matplotlib.pyplot as plt
 
-## Load iris dataset
-iris = datasets.load_iris()
-X = iris.data
+## Load boston housing dataset
+boston = datasets.load_boston()
+X = boston.data
 X = np.insert(X,0,1,axis=1) # constant for mean effect
-Y = iris.target
+Y = boston.target
 model = linear_model.LinearRegression(fit_intercept=False) #Since we have included the intercept term in X
 modelfit = model.fit(X,Y)
 beta = modelfit.coef_
@@ -53,7 +53,7 @@ Y = zeros(length(species),1);
 Y(find(strcmp(species,'virginica')))=2;
 Y(find(strcmp(species,'versicolor')))=1;
 X = meas;
-modelfit = fitlm(X,t); % automatically 
+modelfit = fitlm(X,Y); % automatically 
 beta = modelfit.Coefficients;
 ```
 As we see above, the scripts above do the same thing. It learns the effect of each feature in X on the response variable Y.
