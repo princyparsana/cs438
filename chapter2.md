@@ -32,6 +32,7 @@ Let's see how to do this using Python, R and MATLAB
 
 *Please download example data from: https://raw.githubusercontent.com/princyparsana/cs438/master/data_files/binary.csv*
 
+#### Python
 ```python
 from sklearn import linear_model
 import numpy as np
@@ -69,3 +70,4 @@ We use the fitted model to predict Y using our test data testX
 '''
 predicted_Y = modelfit.predict(testX)
 ```
+####R
