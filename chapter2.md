@@ -33,7 +33,8 @@ Let's see how to do this using Python, R and MATLAB
 *Please download example data from: https://raw.githubusercontent.com/princyparsana/cs438/master/data_files/binary.csv*
 
 ```python
+from sklearn import linear_model
 import numpy as np
-import pandas as pd
+
 
 ```
