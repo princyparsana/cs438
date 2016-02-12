@@ -29,3 +29,11 @@ P(Y==0|X,\beta) = \frac{1}{1+exp(\beta_0 + \beta^TX)}
 $$
 
 Let's see how to do this using Python, R and MATLAB
+
+*Please download example data from: https://raw.githubusercontent.com/princyparsana/cs438/master/data_files/binary.csv*
+
+```python
+import numpy as np
+import pandas as pd
+
+```
