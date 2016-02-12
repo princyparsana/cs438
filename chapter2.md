@@ -10,10 +10,10 @@ $$
 
 How do we model the response such that our predictions are binary?
 
-It turns out that we can do this using a logistic function. We model the $$P(Y==0|X,\beta)$$. This is given by:
+It turns out that we can do this using a logistic function. We model the $$P(Y=0|X,\beta)$$. This is given by:
 $$
 \begin{aligned}
-P(Y==0|X,\beta) = g(\mu + \beta^TX)
+P(Y=0|X,\beta) = g(\mu + \beta^TX)
 \end{aligned}
 $$
 Here $$g(z)$$ is the logistic function:
@@ -22,10 +22,10 @@ $$
 g(z) = \frac{1}{1+exp(-z)}
 \end{aligned}
 $$
-Using the logistic function, we can get the probability of $$Y$$ being $$0$$ or $$1$$ by:
+Using the logistic function, we can get the probability of $$Y$$ being $$0$$ or $$1$$.
 $$
 \begin{aligned}
-P(Y==0|X,\beta) = \frac{1}{1+exp(\mu + \beta^TX)}
+P(Y=0|X,\beta) = \frac{1}{1+exp(\mu + \beta^TX)}
 \end{aligned}
 $$
 
@@ -72,3 +72,13 @@ We use the fitted model to predict Y using our test data testX
 predicted_Y = modelfit.predict(testX)
 ```
 ####R
+```R
+#Read example dataset
+dat_ex = read.csv('data_files/binary.csv',header=T)
+
+#Dimensions of dataset
+dim(dat_ex)
+
+#
+
+```
