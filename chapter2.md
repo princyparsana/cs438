@@ -35,6 +35,6 @@ Let's see how to do this using Python, R and MATLAB
 ```python
 from sklearn import linear_model
 import numpy as np
-
+data_binary = 
 
 ```
