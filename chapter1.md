@@ -18,8 +18,6 @@ Let's see how this works
 from sklearn import datasets
 from sklearn import linear_model
 import numpy as np
-import matplotlib.pyplot as plt
-
 ## Load boston housing dataset
 boston = datasets.load_boston()
 X = boston.data
