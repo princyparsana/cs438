@@ -17,9 +17,6 @@ Let's see how this works
 
 
 #### Python
-
-#### Python
-
 ```python
 from sklearn import datasets
 from sklearn import linear_model
@@ -63,4 +60,3 @@ beta = modelfit.Coefficients;
 ```
 As we see above, the scripts above do the same thing. It learns the effect of each feature in X on the response variable Y.
 
-## Principal Component Analysis
