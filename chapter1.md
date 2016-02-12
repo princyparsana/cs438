@@ -29,8 +29,7 @@ X = boston.data
 X = np.insert(X,0,1,axis=1) # constant for mean effect
 Y = boston.target
 ''' Fit linear regression model'''
-'''Since we have included the intercept term in X, 
-if we do not include constant term for intercept in X,
+''' if we had not included constant term of ones for mean in X,
 then fit_intercept = True'''
 model = linear_model.LinearRegression(fit_intercept=False) 
 modelfit = model.fit(X,Y)
