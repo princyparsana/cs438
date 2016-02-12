@@ -35,6 +35,28 @@ Let's see how to do this using Python, R and MATLAB
 ```python
 from sklearn import linear_model
 import numpy as np
-data_binary = 
+
+'''Read first line of the file - column names'''
+col_names = []
+with open('data_files/binary.csv','r') as fh:
+        col_names.extend(fh.readline().strip().split(','))
+
+
+fh.close()
+
+'''Read the data file using genfromtxt function in NumPy. Skip reading the first line by skip_header, since we already have it in the list col_names'''
+dat_ex = np.genfromtxt('data_files/binary.csv',delimiter=',',skip_header=1)
+
+'''Dimensions od dat_ex'''
+dat_ex.shape ## first entry it returns is number of rows and second is the number of columns.
+
+
+'''The first column of this file is 'admit' which is a binary variable
+where 0 represents that the student was not admitted to the
+program and 1 represents students who were offered admission
+So here first column is the response variable Y'''
+Y = dat_ex[:,0] # selecting all rows of column 0. In python indexing begins from 0
+X = dat_ex[:,1::]
+
 
 ```
