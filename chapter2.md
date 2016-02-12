@@ -10,10 +10,10 @@ $$
 
 How do we model the response such that our predictions are binary?
 
-It turns out that we can do this using a logistic function. We model the $$P(Y=0|X,\beta)$$. This is given by:
+It turns out that we can do this using a logistic function. We model the $$P(Y=1|X,\beta)$$. This is given by:
 $$
 \begin{aligned}
-P(Y=0|X,\beta) = g(\mu + \beta^TX)
+P(Y=1|X,\beta) = g(\mu + \beta^TX)
 \end{aligned}
 $$
 Here $$g(z)$$ is the logistic function:
@@ -25,7 +25,7 @@ $$
 Using the logistic function, we can get the probability of $$Y$$ being $$0$$ or $$1$$.
 $$
 \begin{aligned}
-P(Y=0|X,\beta) = \frac{1}{1+exp(\mu + \beta^TX)}
+P(Y=1|X,\beta) = \frac{1}{1+exp(\mu + \beta^TX)}
 \end{aligned}
 $$
 
@@ -65,7 +65,7 @@ modelfit = model.fit(X,Y)
 beta = modelfit.coef_
 intercept = modelfit.intercept_
 testX = dat_ex[300::,1::]
-testY = Y[300::,0]
+testY = dat_ex[300::,0]
 '''
 We use the fitted model to predict Y using our test data testX
 '''
@@ -74,11 +74,19 @@ predicted_Y = modelfit.predict(testX)
 ####R
 ```R
 #Read example dataset
-dat_ex = read.csv('data_files/binary.csv',header=T)
+dat.ex <- read.csv('data_files/binary.csv',header=T)
 
 #Dimensions of dataset
-dim(dat_ex)
+dim(dat.ex)
 
-#
+# We use 300 samples for training
+Y <- dat.ex[1:300,1]
+X <- dat.ex[1:300,c(2,3,4)]
+modelfit = glm(Y~1+.,family = binomial(),data = X) # 1 is for the intercept term and . represents all columns in X. Since our response variable Y is binary, family = binomial
 
+#Test using 100 samples. In R, we can get response in the form of probability P(Y=1|X,beta)
+testX <- dat.ex[301:400,c(2,3,4)]
+testY <- dat.ex[301:400,1]
+predict.prob<-predict(modelfit, newdata = testX, type = "response")
+predicted.Y<-ifelse(predict.prob>0.5,1,0)
 ```
