@@ -28,3 +28,4 @@ P(Y==0|X,\beta) = \frac{1}{1+exp(\beta_0 + \beta^TX)}
 \end{aligned}
 $$
 
+Let's see how to do this using Python, R and MATLAB
