@@ -29,7 +29,11 @@ boston = datasets.load_boston()
 X = boston.data
 X = np.insert(X,0,1,axis=1) # constant for mean effect
 Y = boston.target
-model = linear_model.LinearRegression(fit_intercept=False) #Since we have included the intercept term in X
+''' Fit linear regression model'''
+'''Since we have included the intercept term in X, 
+if we do not include constant term for intercept in X,
+then fit_intercept = True'''
+model = linear_model.LinearRegression(fit_intercept=False) 
 modelfit = model.fit(X,Y)
 beta = modelfit.coef_
 ```
@@ -48,12 +52,11 @@ beta = model$coefficients
 
 #### MATLAB
 ```matlab
-load fisheriris % this loads two variables, species corresponding to the target and meas corresponding to predictor variable
-Y = zeros(length(species),1); 
-Y(find(strcmp(species,'virginica')))=2;
-Y(find(strcmp(species,'versicolor')))=1;
-X = meas;
-modelfit = fitlm(X,Y); % automatically 
+% load car dataset
+load carsmall
+X = [Weight Horsepower Cylinders Model_Year]; %Features that can help to predict mileage of a car
+Y = MPG; %target variable - mileage
+modelfit = fitlm(X,Y); % automatically fits intercept
 beta = modelfit.Coefficients;
 ```
 As we see above, the scripts above do the same thing. It learns the effect of each feature in X on the response variable Y.
