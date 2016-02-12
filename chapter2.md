@@ -54,13 +54,18 @@ dat_ex.shape ## first entry it returns is number of rows and second is the numbe
 '''The first column of this file is 'admit' which is a binary variable
 where 0 represents that the student was not admitted to the
 program and 1 represents students who were offered admission
-So here first column is the response variable Y'''
-Y = dat_ex[:,0] # selecting all rows of column 0. In python indexing begins from 0
-X = dat_ex[:,1::] # In this example we do not add constant ones, and hence specify fit_intercept=True in our model
+So here first column is the response variable Y
+We Use 300 samples for training and 100 for test'''
+Y = dat_ex[0:300,0] # selecting all rows of column 0. In python indexing begins from 0
+X = dat_ex[0:300,1::] # In this example we do not add constant ones, and hence specify fit_intercept=True in our model
 model = linear_model.LogisticRegression()
 modelfit = model.fit(X,Y)
 beta = modelfit.coef_
-
-
-
+intercept = modelfit.intercept_
+testX = dat_ex[300::,1::]
+testY = Y[300::,0]
+'''
+We use the fitted model to predict Y using our test data testX
+'''
+predicted_Y = modelfit.predict(testX)
 ```
