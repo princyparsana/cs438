@@ -93,3 +93,18 @@ testY <- dat.ex[301:400,1]
 predict.prob<-predict(modelfit, newdata = testX, type = "response")
 predicted.Y<-ifelse(predict.prob>0.5,1,0)
 ```
+
+####MATLAB
+```matlab
+% Load data
+dat_ex = dataset('File','data_files/binary.csv','Delimiter',',');
+X = dat_ex(1:300,[2,3,4]);
+Y = dat_exp(1:300,1);
+testX = dat_ex(301:400,[2,3,4]);
+testY = dat_exp(301:400,1);
+modelfit = fitglm(double(X),double(Y),'Distribution','binomial')
+predY_prob = predict(modelfit,double(testX));
+predY=NaN(100,1);
+predY(find(predY_prob =< 0.5)) = 0;
+predY(find(predYprob > 0.5)) = 1;
+```
