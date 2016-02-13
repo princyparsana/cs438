@@ -60,7 +60,10 @@ So here first column is the response variable Y
 We Use 300 samples for training and 100 for test'''
 Y = dat_ex[0:300,0] # selecting all rows of column 0. In python indexing begins from 0
 X = dat_ex[0:300,1::] # In this example we do not add constant ones, and hence specify fit_intercept=True in our model
-model = linear_model.LogisticRegression()
+model = linear_model.LogisticRegression(C=1e86) ''' Since scikit-learn implementation 
+ of logistic regression is penalized version, 
+ we set C - inverse of penalty parameter to a large number
+ This leads to very low to no regularization'''
 modelfit = model.fit(X,Y)
 beta = modelfit.coef_
 intercept = modelfit.intercept_
